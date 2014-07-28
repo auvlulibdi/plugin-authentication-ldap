@@ -1,5 +1,7 @@
 # LDAP Authentication Plugin for The Fascinator #
 
+Fork of https://github.com/the-fascinator-contrib/plugin-authentication-ldap.git
+
 This plugin allows authentication against an LDAP server for The fascinator platform.
 
 ## Configuration ##
