@@ -348,7 +348,7 @@ public class LdapAuthenticationHandler {
 			ne.close();
 			dc.close();
 		} catch (NamingException ne) {
-			log.warn("Failed LDAP lookup getAttr", ne);
+			log.warn("Failed LDAP lookup getAttr (tf-cja) ", ne);
 			log.warn("username:", username);
 			log.warn("attrName:", attrName);
 		}
@@ -381,7 +381,7 @@ public class LdapAuthenticationHandler {
 			ne.close();
 			dc.close();
 		} catch (NamingException ne) {
-			log.warn("Failed LDAP lookup getAllAttrs (cja) " + username, ne);
+			log.warn("Failed LDAP lookup getAllAttrs (tf-cja) " + username, ne);
 		}
 
 			log.trace("getAllAttrs search result: " + resultList);
