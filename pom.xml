@@ -4,8 +4,10 @@
     <groupId>com.googlecode.the-fascinator.plugins</groupId>
     <artifactId>plugin-authentication-ldap</artifactId>
     <version>1.1-SNAPSHOT</version>
+    <!-- <packaging>jar</packaging> -->
     <name>The Fascinator - Plugin - Authentication - LDAP</name>
     <url>https://sites.google.com/site/fascinatorhome/home/documentation/technical/documents/plugins/authentication/ldap-authentication</url>
+  <!-- <url>http://130.56.250.123:8080/job/plugin-authentication-ldap/</url> -->
     <parent>
         <groupId>com.googlecode.the-fascinator</groupId>
         <artifactId>fascinator-plugins</artifactId>
@@ -39,11 +41,70 @@
             <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
-    <scm>
+
+<!--
+  <scm>
     <url>https://github.com/the-fascinator-contrib/plugin-authentication-ldap.git</url>
     <developerConnection>scm:git:https://github.com/the-fascinator-contrib/plugin-authentication-ldap.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
+-->
+
+  <build>
+    <plugins>
+
+      <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+              <source>1.5</source>
+              <target>1.5</target>
+          </configuration>
+      </plugin>
+
+      <!-- 20140805 : cja : from 'final-nail' start -->
+      <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>2.1</version>
+      </plugin>
+      <plugin>
+          <artifactId>maven-scm-plugin</artifactId>
+          <version>1.8.1</version>
+          <configuration>
+              <tag>${project.artifactId}-${project.version}</tag>
+          </configuration>
+      </plugin>
+      <!-- 20140805 : cja : from 'final-nail' stop -->
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <version>2.6</version>
+      <configuration>
+        <encoding>UTF-8</encoding>
+      </configuration>
+    </plugin>
+
+    </plugins>
+  </build>
+
+  <scm>
+    <connection>scm:git:ssh://git@github.com/auvlulibdi/plugin-authentication-ldap.git</connection>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-ltu</id>
+      <name>Nexus Snapshots LTU</name>
+      <url>http://130.56.250.123:8081/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-ltu</id>
+      <name>Nexus Releases LTU</name>
+      <url>http://130.56.250.123:8081/nexus/content/repositories/releases/</url>
+    </repository>
+  </distributionManagement>
+
   <ciManagement>
       <system>jenkins</system>
       <url>https://dev.redboxresearchdata.com.au/jenkins/view/Plugins%20-%20Authentication/job/Authentication%20-%20LDAP/</url>
